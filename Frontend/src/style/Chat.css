@@ -1,0 +1,83 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    flex: 0.65;
+    height: 90vh;
+    background-color: white;
+}
+
+.chat__header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    background-color: #f5f5f5;
+}
+
+.delete__icon:hover {
+    color: red;
+}
+.chat__header > h4 {
+    font-weight: 500;
+    flex: 0.9;
+    color: gray;
+}
+
+.chat__name {
+    color: black;
+}
+.delete__icon {
+    justify-content: flex-end;
+}
+.chat__input {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid lightgray;
+    background-color: #f5f5f5;
+}
+
+.send__icon:hover {
+    color: green;
+}
+
+.chat__input > form {
+    flex: 1;
+}
+
+.chat__messages{
+    flex: 1;
+    overflow: scroll;
+}
+
+/*Hide scrollbar for chrome, safari and opera*/
+.chat__messages::-webkit-scrollbar {
+    display: none;
+}
+
+/*Hide scrollbar for interneExp, edge and firefox*/
+.chat__messages {
+    -ms-overflow-style: none; /* internetExp + edge*/
+    scrollbar-width: none; /*firefox*/
+}
+
+.chat__input > form > input {
+    width: 98%;
+    outline-width: 0;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    padding: 5px;
+}
+
+.chat__input > form > button {
+    display: none;
+}
+
+#dropdown-basic {
+    border: none;
+    color: gray;
+}
+
+#dropdown-basic:hover {
+    color: rgb(255, 196, 0);
+}

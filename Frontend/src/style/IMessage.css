@@ -1,0 +1,7 @@
+.imessage {
+    height: 100vh;
+    overflow-y: hidden;
+}
+.app__body {
+    display: flex;
+}

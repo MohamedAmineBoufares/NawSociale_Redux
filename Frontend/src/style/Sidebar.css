@@ -1,0 +1,30 @@
+.sidebar {
+    flex: 0.35;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 229, 229);
+    border-right: 1px solid lightgray;
+}
+
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+}
+
+.sidebar__chats {
+    overflow: scroll;
+}
+
+/*Hide scrollbar for chrome, safari and opera*/
+.sidebar__chats::-webkit-scrollbar {
+    display: none;
+}
+
+/*Hide scrollbar for interneExp, edge and firefox*/
+.sidebar__chats {
+    -ms-overflow-style: none; /* internetExp + edge*/
+    scrollbar-width: none; /*firefox*/
+}

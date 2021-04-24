@@ -1,0 +1,20 @@
+.sidebar__avatar {
+    cursor: pointer;
+    margin: 10px;
+}
+
+.sidebar__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: aliceblue;
+    color: gray;
+    border-radius: 5px;
+}
+
+.sidebar__input > input {
+    border: none;
+    background: transparent;
+    outline-width: 0;
+}
