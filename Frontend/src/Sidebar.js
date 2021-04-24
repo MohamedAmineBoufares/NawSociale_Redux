@@ -69,8 +69,8 @@ function Sidebar() {
                     <input placeholder='search'/>
                 </div>
 
-                <IconButton variant='outlined' className='sidebar__inputButton'>
-                    <MessageIcon onClick={addChat}/>
+                <IconButton variant='outlined' className='sidebar__inputButton' onClick={addChat}>
+                    <MessageIcon/>
                 </IconButton>
                 
 

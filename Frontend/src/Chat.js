@@ -11,14 +11,13 @@ import { selectUser } from './features/userSlice';
 import FlipMove from 'react-flip-move';
 import axios from './axios.js'
 import Pusher from 'pusher-js';
-import {auth} from './Firebase'
 import Picker from 'emoji-picker-react';
 import Dropdown from 'react-bootstrap/Dropdown'
+
 
 const pusher = new Pusher('470f630b8e55cfd2fd2c', {
     cluster: 'mt1'
   });
-
 
 function Chat() {
     
@@ -30,7 +29,6 @@ function Chat() {
     const chatId = useSelector(selectChatId);
     const user = useSelector(selectUser);
 
-    
     const onEmojiClick = (event, emojiObject) => {
         setChosenEmoji(emojiObject);
         
@@ -47,7 +45,7 @@ function Chat() {
     useEffect (() => {
         pusher.unsubscribe('messages')
     
-        getConversation(chatId)
+        getConversation(chatId);
 
         const channel = pusher.subscribe('messages');
         channel.bind('newMessage', function (data) {
@@ -63,7 +61,7 @@ function Chat() {
             timestamp: Date.now(),
             user: user
         })
-
+    
         setInput("");
     };
 
@@ -80,7 +78,7 @@ function Chat() {
     }
 
     return (
-        <div className='chat' >
+        <div className='chat'>
 
         {/* chat header */}
             <div className='chat__header'>
@@ -91,10 +89,9 @@ function Chat() {
                 {/*<IconButton className='delete__icon'>
                     <DeleteIcon />
                 </IconButton> */ }
+                <div className='delete__me' onClick={deleteConversation}>Delete me</div>
 
-                <button onClick={deleteConversation}>Delete me</button>
-                
-                <button onClick={() => auth.signOut()} >Log out</button>
+                {/*<button onClick={deleteConversation}>Delete me</button>*/}
             </div>
         {/* chat messages */}
 
@@ -121,6 +118,7 @@ function Chat() {
                     <button onClick={sendMessage}>Send Message</button>
                     
                 </form>
+
 
                 <IconButton className='send__icon' disabled={!input} type='submit' onClick={sendMessage}>
                     <SendIcon/>

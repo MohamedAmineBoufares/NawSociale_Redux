@@ -6,7 +6,7 @@ import './style/SidebarChat.css';
 import * as timeago from 'timeago.js';
 import axios from './axios.js';
 import Pusher from 'pusher-js'
-
+import ReactEmoji from 'react-emoji'
 
 const pusher = new Pusher('470f630b8e55cfd2fd2c', {
     cluster: 'mt1'
@@ -54,7 +54,7 @@ function SidebarChat({id, chatName}) {
             <Avatar src={lastPhoto}/>
             <div className='sidebarChat__info'>
                 <h3>{chatName}</h3>
-                <p className='last__message'>{lastMsg}</p>
+                <p className='last__message'>{ReactEmoji.emojify(lastMsg)}</p>
                 
                 <small>
                 {timeago.format(new Date(parseInt(lastTimestamp)).toUTCString())}

@@ -81,3 +81,8 @@
 #dropdown-basic:hover {
     color: rgb(255, 196, 0);
 }
+
+.delete__me:hover {
+    cursor: pointer;
+    color: red;
+}

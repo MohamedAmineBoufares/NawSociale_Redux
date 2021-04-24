@@ -11,11 +11,14 @@ import AddIcon from '@material-ui/icons/Add';
 import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { selectUser } from './features/userSlice';
 import Dropdown from 'react-bootstrap/Dropdown'
 import SidebarChat from './SidebarChat';
 import axios from './axios.js'
 import Pusher from 'pusher-js';
+import {auth} from './Firebase'
 
 const pusher = new Pusher('470f630b8e55cfd2fd2c', {
     cluster: 'mt1'
@@ -84,9 +87,13 @@ const Header = () => {
                     <AddIcon/>
                 </IconButton>
                    
-                <Dropdown>
+                <Dropdown className='dropDown'>
                     <Dropdown.Toggle variant="success" id="dropdown-basic_header">
-                        <ForumIcon/>
+                        
+                        <IconButton>
+                            <ForumIcon/>
+                        </IconButton>
+                       
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className='MesgDropDown__header'>
@@ -104,9 +111,32 @@ const Header = () => {
                     <NotificationsActiveIcon/>
                 </IconButton>
                 
-                <IconButton>
-                    <ExpandMoreIcon/>   
-                </IconButton>
+                <Dropdown className='dropDown'>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic_header">
+                        
+                        <IconButton>
+                            <ExpandMoreIcon/>   
+                        </IconButton>
+                       
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className='menuDropDown__header'>
+                    
+                    <div className='drop__elem' onClick={() => auth.signOut()}>
+                        <h3>Sign out</h3>
+                            
+                        <MeetingRoomIcon className='door__icon'/>
+                    </div>
+                        
+                    <div className='drop__elem' onClick={()=> window.open('http://127.0.0.1:5500/Frontend/src/settings.html', "_blank")}>
+                        <h3>Settings</h3>
+                            
+                        <SettingsIcon className='settings__icon'/>
+                    </div>
+
+                    </Dropdown.Menu>
+                </Dropdown>
+                
             </div>
 
         </div>

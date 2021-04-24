@@ -3,6 +3,7 @@ import React, { forwardRef } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import './style/Message.css';
+import ReactEmoji from 'react-emoji'
 
 const Message = forwardRef(
     (
@@ -18,7 +19,7 @@ const Message = forwardRef(
             className= {`message ${user.email === sender.email && 'message__sender'}`}>
             
             <Avatar className='message__photo' src={sender.photo}/>
-            <p>{message}</p>
+            <p>{ReactEmoji.emojify(message)}</p>
             <small>{new Date(parseInt(timestamp)).toDateString()}</small>
         </div>
     )

@@ -90,7 +90,7 @@
 .MesgDropDown__header {
   width: 400px;
   max-height: 400px;
-  border: black solid;
+  border: black solid 1px;
   overflow-y: scroll;
   border-radius: 50px;
   background-color: white;
@@ -105,4 +105,65 @@
 .MesgDropDown__header{
   -ms-overflow-style: none; /* internetExp + edge*/
   scrollbar-width: none; /*firefox*/
+}
+
+.dropDown {
+  align-self: center;
+
+}
+.menuDropDown__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: 150px;
+  border: black solid 1px;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.drop__elem{
+  display: flex;
+  padding: 20px;
+  text-align: center;
+ 
+}
+
+.drop__elem:hover {
+  border-bottom: black solid 2px;
+  cursor: pointer;
+}
+
+.drop__elem > h3 {
+  margin-right: 20px;
+}
+
+.drop__elem:hover > .door__icon {
+  color: red;
+}
+
+@keyframes rotate__settings {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.drop__elem:hover > .settings__icon {
+  animation: rotate__settings 4s infinite linear;
 }
