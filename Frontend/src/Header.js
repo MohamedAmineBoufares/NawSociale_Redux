@@ -70,7 +70,6 @@ const Header = () => {
                 </div>
                 <div className="header__option">
                     <StorefrontOutlinedIcon fontSize='large'/>
-                
                 </div>
                 
             
